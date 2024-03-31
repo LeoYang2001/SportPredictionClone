@@ -14,18 +14,19 @@ struct InformationItem: View {
                 HStack{
                    VStack{
                        Spacer()
-                       infoImgDisplay("https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2024-03/nba-plain--97b3a500-22ae-463a-a43f-24f0557702cb.jpeg?h=920929c4&itok=h4nXR5jm", imgSize: 120)
+                       infoImgDisplay("https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2024-03/GettyImages-2102959887%20%281%29.jpg?h=920929c4&itok=GFFGT4px", imgSize: 120)
                        Spacer()
                    }
                    .padding(.horizontal, 10)
                     VStack(alignment: .leading, spacing: 10) {
-                               Text("DeMar DeRozan career points: Bulls star scores season-high 46 points, climbs NBA all-time scoring list")
+                               Text("Jack Gohlke NBA Mock Draft scouting report: Will Oakland 3-point shooter get drafted off March Madness run?")
                                    .foregroundColor(.white)
                                    .frame(height: 2 * geometry.size.height / 3 - 20)
                                    .font(.body)
                                    .fontWeight(.semibold)
+                                   .multilineTextAlignment(.leading)
                                VStack(spacing: 5) {
-                                   Text("Mar 14, 2024")
+                                   Text("Mar 23, 2024")
                                        .foregroundStyle(.gray)
                                        .font(.footnote)
                                }
@@ -42,7 +43,7 @@ struct InformationItem: View {
         .cornerRadius(16)
         .frame(height: 140)
         .frame(maxWidth: .infinity)
-        .padding()
+        .padding(.horizontal)
         
     }
 }

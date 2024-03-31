@@ -21,10 +21,13 @@ struct LeaderBoardCell: View {
             }.frame(width: 20)
             Spacer()
             HStack{
+                ImageDisplay("https://th.bing.com/th/id/OIP.AK78gGIdrrRBVpstKYOa3wHaG_?pid=ImgDet&w=202&h=190&c=7", imgSize: 30)
                 Text("\(username)")
                     .font(.subheadline)
 //                    .fontWeight(.bold)
                     .foregroundColor(.green)
+                    .frame(width: 80)
+                
             }
             Spacer()
             HStack(alignment:.center){

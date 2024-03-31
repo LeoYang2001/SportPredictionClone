@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sportpredictionclone-dev-101629-authRole",
+      "UnauthRoleArn": "arn:aws:iam::727865630580:role/amplify-sportpredictionclone-dev-101629-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::727865630580:role/amplify-sportpredictionclone-dev-101629-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-sportpredictionclone-dev-101629-deployment",
+      "UnauthRoleName": "amplify-sportpredictionclone-dev-101629-unauthRole",
+      "StackName": "amplify-sportpredictionclone-dev-101629",
+      "StackId": "arn:aws:cloudformation:us-east-2:727865630580:stack/amplify-sportpredictionclone-dev-101629/f2002da0-e91f-11ee-81f2-06cd507f32e7",
+      "AmplifyAppId": "d3931s3y84plcd"
+    },
+    "categories": {
+      "auth": {
+        "sportpredictionclone8d144a8e": {}
+      }
+    }
+  }
+}

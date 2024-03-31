@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct GameView: View {
     @ObservedObject private var viewModel = GameViewModel()
@@ -18,6 +19,8 @@ struct GameView: View {
         let count = CGFloat(LeagueFilter.allCases.count)
         return UIScreen.main.bounds.width / count  -  26
     }
+    
+    
     
     var body: some View {
         ZStack{
@@ -57,64 +60,53 @@ struct GameView: View {
                                 }
                             }
                         }.padding(.top)
+                        CalendarView()
                         ScrollView{
                             ZStack{
                                 VStack{
-                                    HStack{
-                                        Button {
-                                            
-                                        } label: {
-                                            Image(systemName: "chevron.left")
-                                                .foregroundStyle(.white)
-                                        }
-                                        .padding(.horizontal)
-                                        
-                                        Spacer()
-                                        Button {
-                                            
-                                        } label: {
-                                            HStack{
-                                                HStack{
-                                                    Image(systemName: "calendar")
-                                                    Text("Monday Feb 12")
-//                                                    Text("FetchGame")
-                                                }
-                    //                            .fontWeight(.semibold)
-                                                .foregroundStyle(.white)
-                                                .font(.subheadline)
-                                            }
-                                            
-                                            
-                                        }
-                                        Spacer()
-                                        Button {
-                                            
-                                        } label: {
-                                            Image(systemName: "chevron.right")
-                                                .foregroundStyle(.white)
-                                        }
-                                        .padding(.horizontal)
-
-                                    }
-                                    .frame(maxWidth: .infinity, minHeight: 36)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .fill(Color.secondColor(1))
-                                    )
-                                    .padding()
-                                    
                                     LazyVStack{
-                                        ForEach(viewModel.games.indices, id: \.self) {
+                                        ForEach(viewModel.dummyData_games.indices, id: \.self) {
                                             index in
+                                            let game = viewModel.dummyData_games[index]
                                             VStack{
-                                                let game = viewModel.games[index]
-                                                GameCellView(isFinished: false, gameInfo: game.gameInfo)
+                                                GameCellView(isFinished: false, gameInfo: game.gameInfo, isPredicted: game.gameInfo.isPredicted)
                                                     .padding(.vertical,2)
                                             }
                                             .padding(.vertical, 4)
+                                            
                                         }
                                     }
+//                                    if(viewModel.dummyData_falsePredictions.count != 0){
+//                                        HStack{
+//                                            ZStack{
+//                                                Rectangle()
+//                                                           .fill(Color.gray) // Color of the line
+//                                                           .frame(height: 1) // Height of the line
+//                                                       
+//                                                       Text("Predicted Games")
+//                                                           .font(.headline)
+//                                                           .foregroundColor(.gray)
+//                                                           .padding(.horizontal, 5)
+//                                                           .background(Color.themeColor(1))
+//                                            }
+//                                        }
+//                                        LazyVStack{
+//                                            ForEach(viewModel.dummyData_games.indices, id: \.self) {
+//                                                index in
+//                                                let game = viewModel.dummyData_games[index]
+//                                                if(game.gameInfo.isPredicted)
+//                                                {
+//                                                    VStack{
+//                                                        GameCellView(isFinished: false, gameInfo: game.gameInfo, isPredicted: game.gameInfo.isPredicted)
+//                                                            .padding(.vertical,2)
+//                                                    }
+//                                                    .padding(.vertical, 4)
+//                                                }
+//                                            }
+//                                        }
+//                                    }
                                 }
+                                
                             }
                          
                         }
@@ -130,4 +122,78 @@ struct GameView: View {
         }
         
     }
+    
+    struct CalendarView: View {
+        @State private var date = Date()
+        @State private var dateValue = 0
+        @State private var formattedDate = ""
+
+        var body: some View {
+            HStack {
+                Button {
+                    if(dateValue > 0)
+                    {
+                        dateValue -= 1
+                    }
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(dateValue > 0 ? .white : .gray)
+                }
+                .padding(.horizontal)
+                .disabled(dateValue <= 0)
+                Spacer()
+
+                Text(formattedDate)
+                    .foregroundStyle(.white)
+                    .font(.headline)
+
+                Spacer()
+
+                Button {
+                    
+                    dateValue += 1
+                } label: {
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(.white)
+                }
+                .padding(.horizontal)
+            }
+            .frame(maxWidth: .infinity, minHeight: 36)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.secondColor(1))
+            )
+            .padding()
+            .onAppear {
+                updateFormattedDate()
+            }
+            .onChange(of: dateValue) { _ in
+                updateFormattedDate()
+            }
+        }
+
+        func updateFormattedDate() {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE MMM d"
+            let currentDate = Calendar.current.date(byAdding: .day, value: dateValue, to: date)
+            formattedDate = dateFormatter.string(from: currentDate ?? Date())
+        }
+    }
+
+    
+
 }
+
+#Preview {
+    GameView()
+}
+extension View {
+    @ViewBuilder func changeTextColor(_ color: Color) -> some View {
+        if UITraitCollection.current.userInterfaceStyle == .light {
+            self.colorInvert().colorMultiply(color)
+        } else {
+            self.colorMultiply(color)
+        }
+    }
+}
+

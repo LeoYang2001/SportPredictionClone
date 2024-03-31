@@ -86,7 +86,7 @@ struct PredictedPollItemView: View {
                         Text("MIA Heat")
                             .font(.footnote)
                             .frame(width:100)
-                        VotedBtn(voteRatio: 2/3, ifVoted: true)
+                        VotedBtn(voteRatio: 2/3, ifVoted: true, ifPredicted: false)
                     }
                     
                     VStack{
@@ -106,7 +106,7 @@ struct PredictedPollItemView: View {
                             .font(.footnote)
                             .frame(width:100)
                         
-                         VotedBtn(voteRatio: 1/3, ifVoted: false)
+                         VotedBtn(voteRatio: 1/3, ifVoted: false, ifPredicted: false)
                     }
                 }
                Spacer()

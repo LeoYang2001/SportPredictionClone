@@ -15,6 +15,7 @@ struct ProfileView: View {
                                 .font(.title)
                                 .fontWeight(.bold)
                             Spacer()
+                            
                         })
                         .padding(.horizontal)
 

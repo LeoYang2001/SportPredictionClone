@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Amplify
+
+
+
 
 struct ContentView: View {
-    @State private var loggedIn = false
+    @State private var loggedIn = true
     
     var body: some View {
         VStack {
@@ -26,7 +30,25 @@ struct ContentView: View {
                    }
                }
         }
+        .onAppear{
+            Task{
+            }
+        }
     }
+    
+    func fetchCurrentAuthSession() async {
+        do {
+            let session = try await Amplify.Auth.fetchAuthSession()
+            print("Is user signed in - \(session.isSignedIn)")
+        } catch let error as AuthError {
+            print("Fetch session failed with error \(error)")
+        } catch {
+            print("Unexpected error: \(error)")
+        }
+    }
+    
+    
+   
 }
 
 #Preview {

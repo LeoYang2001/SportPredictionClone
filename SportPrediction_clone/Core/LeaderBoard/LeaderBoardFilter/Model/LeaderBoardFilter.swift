@@ -16,7 +16,7 @@ enum LeaderBoardFilter: Int, CaseIterable, Identifiable{
     var title: String{
         switch self{
             case .alltime: return "All-time"
-            case .lastWeek: return "Last 7 Days"
+            case .lastWeek: return "Last 2 weeks"
             case .lastMonth: return "Last Month"
         }
     }

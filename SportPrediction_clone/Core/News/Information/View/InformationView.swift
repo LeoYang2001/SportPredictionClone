@@ -14,9 +14,15 @@ struct InformationView: View {
         VStack{
             ForEach(informationList, id: \.self){
                 item in
-                InformationItem()
+                NavigationLink {
+                    DetailNewsView()
+                } label: {
+                    InformationItem()
+                }
+
             }
         }
+        
     }
 }
 

@@ -15,19 +15,22 @@ struct GameCellView: View {
     var isFinished: Bool
     var gameInfo: GameInfo
     var gameID: String
+    var isPredicted: Bool
+    var dummyPredictedPercentage: Float = 0.6
     
-    init(isFinished: Bool, gameInfo: GameInfo) {
+    init(isFinished: Bool, gameInfo: GameInfo, isPredicted: Bool) {
            self.isFinished = isFinished
            self.gameInfo = gameInfo
            self.gameID = gameInfo.id // Assuming your GameInfo has a property gameID
            self.viewModel = GameCellViewModel()
+        self.isPredicted = isPredicted
        }
     
     var body: some View {
         VStack{
             HStack(alignment: .center){
                 VStack(alignment:.leading){
-                    headerText("Matchup")
+                    GameTime(gameStartTime:gameInfo.time, isPredicted:isPredicted)
                    
                     VStack{ // Adjust vertical spacing
                            TeamInfo(teamName: gameInfo.teamInfo.teamA.name,
@@ -57,11 +60,18 @@ struct GameCellView: View {
                 }
                 Spacer()
                 
+                
+                
+                
                 VStack{
-                    headerText("Prediction")
+                    if !isPredicted{
+                        headerText("Prediction")
+                    }else{
+                        headerText("Your Prediction")
+                    }
                     Spacer()
                     VStack(spacing: 20){
-                        if !viewModel.ifPredicted {
+                        if !viewModel.ifPredicted && !isPredicted {
                             VStack{
                                 Button(action: {
                                     handleVote("TeamA")
@@ -79,9 +89,23 @@ struct GameCellView: View {
                             }
                         }
                         else{
-                            VotedBtn(voteRatio: viewModel.voteRatio, ifVoted: viewModel.ifVoteForTeamA)
-                            
-                            VotedBtn(voteRatio: 1 - viewModel.voteRatio, ifVoted: !viewModel.ifVoteForTeamA)
+                            if isPredicted{
+                                Spacer()
+                                HStack{
+                                    Text("You picked \(splitName(gameInfo.teamInfo.teamB.name) ?? "error ")")
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.gray)
+                                    
+//                                    VotedBtn(voteRatio: dummyPredictedPercentage, ifVoted: true, ifPredicted: isPredicted)
+                                    
+                                }
+                                Spacer()
+                              
+                            }else{
+                                VotedBtn(voteRatio: viewModel.voteRatio, ifVoted: viewModel.ifVoteForTeamA, ifPredicted: isPredicted)
+                                
+                                VotedBtn(voteRatio: 1 - viewModel.voteRatio, ifVoted: !viewModel.ifVoteForTeamA, ifPredicted: isPredicted)
+                            }
                         }
                     }
 
@@ -197,6 +221,7 @@ func VoteBtn(_ text: String) -> some View{
 struct VotedBtn: View {
     var voteRatio: Float
     var ifVoted: Bool
+    var ifPredicted: Bool
 
     @State private var animatedWidth: CGFloat = 0
 
@@ -228,6 +253,7 @@ struct VotedBtn: View {
                         }
                     }
             })
+            .disabled(ifPredicted)
         }
     }
 }
@@ -242,8 +268,8 @@ func ImageDisplay(_ imageURLString: String, imgSize:CGFloat) -> some View{
            } placeholder: {
                ProgressView()
            }
-           .frame(width: imgSize, height: imgSize) // Set your desired size
-           .clipShape(Circle()) // Opti
+           .frame(width: imgSize, height: imgSize)
+           .clipShape(Circle())
     
             
 }

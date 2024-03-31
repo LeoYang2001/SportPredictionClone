@@ -5,10 +5,12 @@ struct TabBarView: View {
     @State private var showCreateThread = false
     @State private var formerTab = 0
     let tabs:[TabData] = [
-        TabData(title: AnyView(NewsView()), imageName: "house", selectedImageName: "house.fill", tag: 0),
-                TabData(title: AnyView(GameView()), imageName: "basketball", selectedImageName: "basketball.fill", tag: 1),
-                TabData(title: AnyView(LeaderBoardView()), imageName: "trophy", selectedImageName: "trophy.fill", tag: 2),
-                TabData(title: AnyView(ProfileTestView()), imageName: "person", selectedImageName: "person.fill", tag: 3)
+        TabData(title: AnyView(GameView()), imageName: "basketball", selectedImageName: "basketball.fill", tag: 0),
+        TabData(title: AnyView(NewsView()), imageName: "newspaper", selectedImageName: "newspaper.fill", tag: 1),
+               
+                TabData(title: AnyView(MyBetView()), imageName: "tray.and.arrow.up", selectedImageName: "tray.and.arrow.up.fill", tag: 2),
+        TabData(title: AnyView(LeaderBoardView()), imageName: "trophy", selectedImageName: "trophy.fill", tag: 3),
+                TabData(title: AnyView(ProfileTestView()), imageName: "person", selectedImageName: "person.fill", tag: 4)
     ]
     var body: some View {
         ZStack{

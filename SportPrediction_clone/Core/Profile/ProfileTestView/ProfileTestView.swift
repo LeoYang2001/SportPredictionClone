@@ -18,6 +18,12 @@ struct ProfileTestView: View {
                                .font(.title)
                                .fontWeight(.bold)
                                 Spacer()
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                HStack{
+                                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                                    Text("Logout")
+                                }
+                            })
                         }
                         .padding(.horizontal)
                         ProfileImageView(imageSize: 120)
@@ -45,49 +51,79 @@ struct ProfileTestView: View {
                                    .foregroundColor(.white)
                                    .cornerRadius(8)
                             }
-                        }.padding()
+                        }.padding(.vertical, 30)
                         HStack{
-                            
-                            VStack{
-                                Text("Total Wins")
-                                    .font(.system(size: 16, weight: .regular, design: .default))
-                                               .foregroundColor(.gray)
-                                               .padding(.vertical,2)
-                                Text("120")
-                                    .font(.system(size: 24, weight: .bold, design: .default))
-                            }
-                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
-                               .padding()
-                            VStack{
-                                Text("Overall Rank")
-                                    .font(.system(size: 16, weight: .regular, design: .default))
-                                               .foregroundColor(.gray)
-                                               .padding(.vertical,2)
-                                Text("20")
-                                    .font(.system(size: 24, weight: .bold, design: .default))
-                            }
-                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
-                               .padding()
-                            VStack{
-                                Text("Weekly Rank")
-                                    .font(.system(size: 16, weight: .regular, design: .default))
-                                               .foregroundColor(.gray)
-                                               .padding(.vertical,2)
-                                Text("10")
-                                    .font(.system(size: 24, weight: .bold, design: .default))
-                            }
-                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
-                               .padding()
-                            
-                        }
-                        HStack{
-                            Text("Predictions")
-                                .font(.title2)
-                                .fontWeight(.semibold)
+                            DropdownView(options: ["NBA","NFL","NCAA"])
                             Spacer()
+                            DropdownView(options: ["All Time","NFL","NCAA"])
                         }
                         .padding()
-                        PredictedPollView()
+                        HStack{
+                            VStack{
+                                Text("Rank")
+                                    .font(.system(size: 16, weight: .regular, design: .default))
+                                               .foregroundColor(.gray)
+                                               .padding(.vertical,2)
+                                Text("6")
+                                    .font(.system(size: 24, weight: .bold, design: .default))
+                            }
+                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
+                               .padding()
+                            VStack{
+                                Text("Wins")
+                                    .font(.system(size: 16, weight: .regular, design: .default))
+                                               .foregroundColor(.gray)
+                                               .padding(.vertical,2)
+                                Text("3")
+                                    .font(.system(size: 24, weight: .bold, design: .default))
+                            }
+                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
+                               .padding()
+                            VStack{
+                                Text("Losses")
+                                    .font(.system(size: 16, weight: .regular, design: .default))
+                                               .foregroundColor(.gray)
+                                               .padding(.vertical,2)
+                                Text("5")
+                                    .font(.system(size: 24, weight: .bold, design: .default))
+                            }
+                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
+                               .padding()
+                           
+                            
+                        }
+                        HStack{
+                            VStack{
+                                Text("Points")
+                                    .font(.system(size: 16, weight: .regular, design: .default))
+                                               .foregroundColor(.gray)
+                                               .padding(.vertical,2)
+                                Text("30")
+                                    .font(.system(size: 24, weight: .bold, design: .default))
+                            }
+                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
+                               .padding()
+                            VStack{
+                                Text("Percentile")
+                                    .font(.system(size: 16, weight: .regular, design: .default))
+                                               .foregroundColor(.gray)
+                                               .padding(.vertical,2)
+                                Text("0.00")
+                                    .font(.system(size: 24, weight: .bold, design: .default))
+                            }
+                            .frame(maxWidth: .infinity) // Ensure VStack fills available space evenly
+                               .padding()
+    
+                            
+                        }
+//                        HStack{
+//                            Text("Predictions")
+//                                .font(.title2)
+//                                .fontWeight(.semibold)
+//                            Spacer()
+//                        }
+//                        .padding()
+//                        PredictedPollView()
                         Spacer()
                     }
                     .foregroundColor(.white)
@@ -100,6 +136,37 @@ struct ProfileTestView: View {
     ProfileTestView()
 }
 
+struct profileDataItemView: View{
+    let dataName:String
+    let dataNum:Int
+    var body: some View{
+        VStack{
+            HStack{
+                Text(dataName)
+                    .fontWeight(.semibold)
+                    .font(.subheadline)
+                Spacer()
+            }
+            .padding()
+            Spacer()
+            HStack{
+               Spacer()
+                Text("\(dataNum)")
+                    .fontWeight(.semibold)
+                    .font(.title)
+            }
+            .padding()
+        }
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.black, lineWidth: 0)
+        )
+        .frame(width:120, height: 120)
+        .background(Color.thirdColor(1))
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 2, y: 2)
+    }
+}
 struct ProfileImageView: View{
     let imageSize: CGFloat
     var body: some View{

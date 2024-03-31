@@ -48,11 +48,12 @@ struct CarouselItemView: View {
     let item: CarouselItem
     let itemWidth: CGFloat
     let teamImgSize: CGFloat = 60
+    @State private var shouldPresentNewView = false
     
     var body: some View {
             VStack(spacing: 0) {
                 ZStack{
-                    Image("footballBg")
+                    Image("basketballBg")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: itemWidth, height: 130)
@@ -72,20 +73,31 @@ struct CarouselItemView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: teamImgSize, height: teamImgSize)
-                                .padding()
-                            Text("Tottenham")
-                                .font(.subheadline)
+                                .padding(.horizontal)
+                            Text("Heat")
+                                .font(.headline)
                         }
                         Spacer()
                         VStack{
-                            Text("1 : 1")
+                            Text("101 : 110")
                                 .font(.title3)
                                 .foregroundStyle(.green)
-                                .fontWeight(.semibold)
-                            Text("21'")
-                                .font(.footnote)
-                                .foregroundStyle(.green)
-                                .padding(.vertical, 4)
+                                .fontWeight(.bold)
+//                            Text("21'")
+//                                .font(.footnote)
+//                                .foregroundStyle(.green)
+//                                .padding(.vertical, 4)
+                            HStack{
+                                Text("Live")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.semibold)
+                                    .padding(.vertical, 4)
+                                    .padding(.horizontal, 8)
+                            }
+                            .background(.red)
+                            .cornerRadius(6)
+                            
                             
                         }
                         Spacer()
@@ -94,9 +106,9 @@ struct CarouselItemView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: teamImgSize, height: teamImgSize)
-                                .padding()
-                            Text("PSG")
-                                .font(.subheadline)
+                                .padding(.horizontal)
+                            Text("Nuggets")
+                                .font(.headline)
                         }
                     }
                     Spacer()
@@ -107,7 +119,7 @@ struct CarouselItemView: View {
                 }
                 .multilineTextAlignment(.center)
                 .padding()
-                .frame(width: itemWidth, height: 140)
+                .frame(width: itemWidth, height: 120)
                 .background(Color.thirdColor(0.8))
                 .mask(RoundedCorners(bl: 16, br: 16))
             }
@@ -118,6 +130,17 @@ struct CarouselItemView: View {
                     .stroke(Color.red, lineWidth: 0)
             )
             .shadow(color: Color.black.opacity(0.7), radius: 10, x: 2, y: 2)
+            .onTapGesture {
+                        // Set shouldPresentNewView to true to trigger presenting the new view
+                        shouldPresentNewView = true
+            }
+            .fullScreenCover(isPresented: $shouldPresentNewView) {
+                // The view to be presented when shouldPresentNewView is true
+                LiveGameView()
+              
+            }
+            
+        
         }
      
 }

@@ -14,6 +14,7 @@ struct GameInfo: Codable {
     let time: String
     let teamInfo: TeamInformation
     let gameResult: String? // Change the type accordingly if gameResult is not a string
+    let isPredicted: Bool
 }
 
 struct TeamInformation: Codable {
@@ -34,4 +35,5 @@ struct GamesResponse: Codable {
 
 struct Game: Codable {
     let gameInfo: GameInfo
+    
 }
