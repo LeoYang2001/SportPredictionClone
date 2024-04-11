@@ -1,31 +1,67 @@
+////
+////  InformationView.swift
+////  SportPrediction_clone
+////
+////  Created by 杨嘉煌 on 3/15/24.
+////
 //
-//  InformationView.swift
+//import SwiftUI
+//
+//struct InformationView: View {
+//    
+//    @ObservedObject var viewModel = NewsViewModel()
+//   
+//    let informationList = ["Item 1", "Item 2", "Item 3"]
+//    
+//    var body: some View {
+//        VStack{
+//            ForEach(viewModel.articles.indices, id: \.self){
+//                item in
+//                NavigationLink {
+//                    DetailNewsView()
+//                } label: {
+//                    InformationItem()
+//                }
+//
+//            }
+//        }
+//        .onAppear{
+//            viewModel.fetchArticles()
+//        }
+//    }
+//}
+
+//
+//  APITestView.swift
 //  SportPrediction_clone
 //
-//  Created by 杨嘉煌 on 3/15/24.
+//  Created by 杨嘉煌 on 4/9/24.
 //
 
 import SwiftUI
 
 struct InformationView: View {
-    let informationList = ["Item 1", "Item 2", "Item 3"]
+    @ObservedObject var viewModel = NewsViewModel()
     
     var body: some View {
         VStack{
-            ForEach(informationList, id: \.self){
-                item in
+            ForEach(viewModel.articles.indices, id: \.self) {
+                index in
+                let article = viewModel.articles[index]
                 NavigationLink {
-                    DetailNewsView()
+                    DetailNewsView(article: article)
                 } label: {
-                    InformationItem()
+                    InformationItem(article: article)
                 }
-
             }
         }
-        
+        .onAppear{
+            viewModel.fetchArticles()
+        }
     }
 }
 
 #Preview {
-    InformationView()
+    APITestView()
 }
+

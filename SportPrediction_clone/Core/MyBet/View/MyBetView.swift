@@ -30,11 +30,11 @@ struct MyBetView: View {
                            
                                 VStack(spacing: 0) {
                                     ForEach(0..<5, id: \.self) { index in
-                                        let ifComplete = index == 1 ? true : false
+                                        let ifComplete = index != 1 ? true : false
                                         let ifWin = index == 2 ? false : true
                                         
                                         ZStack{
-                                            BetItem(ifComplete:ifComplete, ifWin: ifWin)
+                                            PredictionCardView(ifComplete:ifComplete, ifWin: ifWin)
                                         }
                                         .padding()
                                     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B408D7FD2BC6D8F40030C040 /* PredictionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */; };
 		B42E32372BB8661A00FC1863 /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32362BB8661A00FC1863 /* GameTime.swift */; };
 		B42E32402BB884FA00FC1863 /* MyBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E323F2BB884FA00FC1863 /* MyBetView.swift */; };
 		B42E32452BB8853C00FC1863 /* MyBetFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32442BB8853C00FC1863 /* MyBetFilter.swift */; };
@@ -14,6 +15,9 @@
 		B42E32492BB88A8800FC1863 /* BetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32482BB88A8800FC1863 /* BetItem.swift */; };
 		B42E324D2BB8BBB800FC1863 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E324C2BB8BBB800FC1863 /* DropdownView.swift */; };
 		B44066F72BA32D7C0064EC8A /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44066F62BA32D7C0064EC8A /* NewsView.swift */; };
+		B45CFA192BC59ABF00A9F9C8 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45CFA182BC59ABF00A9F9C8 /* NewsModel.swift */; };
+		B45CFA1C2BC59ADC00A9F9C8 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45CFA1B2BC59ADC00A9F9C8 /* NewsViewModel.swift */; };
+		B45CFA1E2BC59B6900A9F9C8 /* APITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45CFA1D2BC59B6900A9F9C8 /* APITestView.swift */; };
 		B486DDC52BA4981D0048B139 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B486DDC42BA4981D0048B139 /* CarouselView.swift */; };
 		B486DDC72BA498910048B139 /* PredictedPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B486DDC62BA498910048B139 /* PredictedPollView.swift */; };
 		B486DDCE2BA4E5370048B139 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B486DDCD2BA4E5370048B139 /* InformationView.swift */; };
@@ -77,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionCardView.swift; sourceTree = "<group>"; };
 		B42E32362BB8661A00FC1863 /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
 		B42E323F2BB884FA00FC1863 /* MyBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetView.swift; sourceTree = "<group>"; };
 		B42E32442BB8853C00FC1863 /* MyBetFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetFilter.swift; sourceTree = "<group>"; };
@@ -84,6 +89,9 @@
 		B42E32482BB88A8800FC1863 /* BetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetItem.swift; sourceTree = "<group>"; };
 		B42E324C2BB8BBB800FC1863 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		B44066F62BA32D7C0064EC8A /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		B45CFA182BC59ABF00A9F9C8 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		B45CFA1B2BC59ADC00A9F9C8 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		B45CFA1D2BC59B6900A9F9C8 /* APITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestView.swift; sourceTree = "<group>"; };
 		B486DDC42BA4981D0048B139 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		B486DDC62BA498910048B139 /* PredictedPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictedPollView.swift; sourceTree = "<group>"; };
 		B486DDCD2BA4E5370048B139 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
@@ -220,6 +228,7 @@
 		B42E324A2BB8B28600FC1863 /* PredictedCard */ = {
 			isa = PBXGroup;
 			children = (
+				B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */,
 			);
 			path = PredictedCard;
 			sourceTree = "<group>";
@@ -235,6 +244,8 @@
 		B44066F42BA32D600064EC8A /* News */ = {
 			isa = PBXGroup;
 			children = (
+				B45CFA1A2BC59ACC00A9F9C8 /* ViewModel */,
+				B45CFA172BC59AAE00A9F9C8 /* Model */,
 				B4B136192BAF4C100027A774 /* liveGame */,
 				B486DDCB2BA4E5240048B139 /* Information */,
 				B486DDC82BA499370048B139 /* PredictedPoll */,
@@ -248,8 +259,25 @@
 			children = (
 				B44066F62BA32D7C0064EC8A /* NewsView.swift */,
 				B486DDC42BA4981D0048B139 /* CarouselView.swift */,
+				B45CFA1D2BC59B6900A9F9C8 /* APITestView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B45CFA172BC59AAE00A9F9C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B45CFA182BC59ABF00A9F9C8 /* NewsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B45CFA1A2BC59ACC00A9F9C8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B45CFA1B2BC59ADC00A9F9C8 /* NewsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B486DDC82BA499370048B139 /* PredictedPoll */ = {
@@ -794,12 +822,14 @@
 				B486DDD72BA5D9180048B139 /* AuthenticationView.swift in Sources */,
 				B44066F72BA32D7C0064EC8A /* NewsView.swift in Sources */,
 				B48B41DE2BA23678007EAB1D /* LeagueFilter.swift in Sources */,
+				B45CFA192BC59ABF00A9F9C8 /* NewsModel.swift in Sources */,
 				B48B42042BA2392F007EAB1D /* LeaderBoardView.swift in Sources */,
 				B486DDD32BA5D1120048B139 /* ProfileTestView.swift in Sources */,
 				B42E32402BB884FA00FC1863 /* MyBetView.swift in Sources */,
 				B4B1361B2BAF4C210027A774 /* LiveGameView.swift in Sources */,
 				B486DDDB2BA5DD170048B139 /* PlayerView.swift in Sources */,
 				B48B41E52BA236C7007EAB1D /* Prediction.swift in Sources */,
+				B408D7FD2BC6D8F40030C040 /* PredictionCardView.swift in Sources */,
 				B486DDCE2BA4E5370048B139 /* InformationView.swift in Sources */,
 				B48B41FE2BA238EE007EAB1D /* LeaderBoardFilter.swift in Sources */,
 				B486DDDF2BA6245A0048B139 /* WelcomeView.swift in Sources */,
@@ -808,6 +838,7 @@
 				B4B136182BAF4A820027A774 /* DetailNewsView.swift in Sources */,
 				B486DDE32BA62CB20048B139 /* SignUpView.swift in Sources */,
 				B486DDE12BA6247D0048B139 /* SignInView.swift in Sources */,
+				B45CFA1C2BC59ADC00A9F9C8 /* NewsViewModel.swift in Sources */,
 				B48B41EE2BA237CA007EAB1D /* User.swift in Sources */,
 				B48B41F42BA23800007EAB1D /* ProfileView.swift in Sources */,
 				B48B41C82BA234AC007EAB1D /* TabBarView.swift in Sources */,
@@ -821,6 +852,7 @@
 				B48B42002BA23903007EAB1D /* LeaderBoardFilterView.swift in Sources */,
 				B48B419A2BA23352007EAB1D /* SportPrediction_cloneApp.swift in Sources */,
 				B42E32452BB8853C00FC1863 /* MyBetFilter.swift in Sources */,
+				B45CFA1E2BC59B6900A9F9C8 /* APITestView.swift in Sources */,
 				B42E32372BB8661A00FC1863 /* GameTime.swift in Sources */,
 				B48B41F62BA2381F007EAB1D /* ProfileViewModel.swift in Sources */,
 				B48B41D42BA235E6007EAB1D /* GameView.swift in Sources */,

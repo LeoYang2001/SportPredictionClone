@@ -4,29 +4,34 @@
 //
 //  Created by 杨嘉煌 on 3/15/24.
 //
+//
+//"https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2024-03/GettyImages-2102959887%20%281%29.jpg?h=920929c4&itok=GFFGT4px"
 
 import SwiftUI
 
 struct InformationItem: View {
+    
+    let article: NewsArticle
     var body: some View {
         HStack{
             GeometryReader { geometry in
                 HStack{
                    VStack{
                        Spacer()
-                       infoImgDisplay("https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2024-03/GettyImages-2102959887%20%281%29.jpg?h=920929c4&itok=GFFGT4px", imgSize: 120)
+                       infoImgDisplay(article.urlToImage.S, imgSize: 120)
                        Spacer()
                    }
                    .padding(.horizontal, 10)
                     VStack(alignment: .leading, spacing: 10) {
-                               Text("Jack Gohlke NBA Mock Draft scouting report: Will Oakland 3-point shooter get drafted off March Madness run?")
+                        Text(article.title.S)
                                    .foregroundColor(.white)
                                    .frame(height: 2 * geometry.size.height / 3 - 20)
                                    .font(.body)
                                    .fontWeight(.semibold)
                                    .multilineTextAlignment(.leading)
                                VStack(spacing: 5) {
-                                   Text("Mar 23, 2024")
+                                   Text(article.publishedAt.S)
+                                               .formatDate(dateString: article.publishedAt.S)
                                        .foregroundStyle(.gray)
                                        .font(.footnote)
                                }
@@ -48,9 +53,6 @@ struct InformationItem: View {
     }
 }
 
-#Preview {
-    InformationItem()
-}
 
 func infoImgDisplay(_ imageURLString: String, imgSize:CGFloat) -> some View{
     AsyncImage(url: URL(string: imageURLString)) { image in
@@ -63,12 +65,29 @@ func infoImgDisplay(_ imageURLString: String, imgSize:CGFloat) -> some View{
            .frame(width: imgSize, height: imgSize) // Set your desired size
            .clipShape(RoundedRectangle(cornerRadius: 16)) // Opti
 }
-//
-//    .resizable()
-//    .scaledToFill()
-//    .frame(width: geometry.size.width / 3, height: 108)
-//    .clipShape(RoundedRectangle(cornerRadius: 16))
-//    .overlay(
-//        RoundedRectangle(cornerRadius: 16)
-//            .stroke(Color.black, lineWidth: 1)
-//    )
+
+
+struct DateFormatModifier: ViewModifier {
+    let dateString: String
+    
+    func body(content: Content) -> some View {
+        Text(formatDate(dateString: dateString))
+    }
+    
+    func formatDate(dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        if let date = dateFormatter.date(from: dateString) {
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            return dateFormatter.string(from: date)
+        } else {
+            return "Invalid Date"
+        }
+    }
+}
+
+extension View {
+    func formatDate(dateString: String) -> some View {
+        self.modifier(DateFormatModifier(dateString: dateString))
+    }
+}
