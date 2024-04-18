@@ -30,7 +30,7 @@ struct GameCellView: View {
         VStack{
             HStack(alignment: .center){
                 VStack(alignment:.leading){
-                    GameTime(gameStartTime:gameInfo.time, isPredicted:isPredicted)
+                    GameTime(gameStartTime:"19:00:00", isPredicted:false)
                    
                     VStack{ // Adjust vertical spacing
                            TeamInfo(teamName: gameInfo.teamInfo.teamA.name,
@@ -138,13 +138,13 @@ struct TeamInfo: View{
     var body: some View{
         HStack{
             HStack{
-                ImageDisplay(teamImgUrl,imgSize:40)
+                ImageDisplayWithoutCutting(teamImgUrl,imgSize:32)
             }
-            .frame(width: 40, height: 40)
+            .frame(width: 55, height: 35)
             
 //            Spacer()
             VStack(alignment: .leading){
-                Text(splitName(teamName) ?? "")
+                Text(teamName)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .font(.subheadline)
                 if let (teamRecord, teamStanding) = splitStanding(standing) {
@@ -189,7 +189,8 @@ func splitName(_ name: String) -> (String)? {
           // Invalid format, return nil or handle accordingly
           return nil
       }
-      return components[0]
+   
+      return components[1]
   }
 
 func headerText(_ text: String) -> some View{
@@ -207,7 +208,7 @@ func TeamName(_ text: String) -> some View{
 }
 
 func VoteBtn(_ text: String) -> some View{
-    Text(splitName(text) ?? " ")
+    Text(text)
         .padding(.vertical,8)
         .foregroundStyle(.white)
         .frame(width: 80, height: .infinity)
@@ -270,6 +271,17 @@ func ImageDisplay(_ imageURLString: String, imgSize:CGFloat) -> some View{
            }
            .frame(width: imgSize, height: imgSize)
            .clipShape(Circle())
+}
+
+func ImageDisplayWithoutCutting(_ imageURLString: String, imgSize:CGFloat) -> some View{
+    AsyncImage(url: URL(string: imageURLString)) { image in
+               image
+                   .resizable()
+                   .aspectRatio(contentMode: .fill)
+           } placeholder: {
+               ProgressView()
+           }
+           .frame(width: imgSize, height: imgSize)
     
             
 }

@@ -52,7 +52,7 @@ struct GameTime: View {
 
         let currentTime = Date()
         let currentTimeString = dateFormatter.string(from: currentTime)
-        print(currentTimeString)
+      
         guard let gameStartTime = dateFormatter.date(from: gameStartTimeString) else {
             fatalError("Invalid game start time")
         }

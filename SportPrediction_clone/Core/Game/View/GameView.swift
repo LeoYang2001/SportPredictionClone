@@ -9,9 +9,7 @@ import SwiftUI
 import Foundation
 
 struct GameView: View {
-    @ObservedObject private var viewModel = GameViewModel()
-    @StateObject private var userListModel = UserListViewModel()
-    @StateObject private var profileViewModel = ProfileViewModel()
+    @ObservedObject private var viewModel = NBAViewModel()
     
     @State private var selectedFilter: LeagueFilter = .nba
     @Namespace var animation
@@ -21,6 +19,7 @@ struct GameView: View {
     }
     
     
+    @State private var currentDate = Date()
     
     var body: some View {
         ZStack{
@@ -60,58 +59,51 @@ struct GameView: View {
                                 }
                             }
                         }.padding(.top)
-                        CalendarView()
+                        CalendarView(date: $currentDate)
+//                        Button {
+//                            viewModel.fetchGames(date: (formatDateToEDT(currentDate)))
+//                          
+//                        } label: {
+//                            Text("fetch game \(formatDateToEDT(currentDate))")
+//                        }
+
                         ScrollView{
                             ZStack{
                                 VStack{
                                     LazyVStack{
-                                        ForEach(viewModel.dummyData_games.indices, id: \.self) {
-                                            index in
-                                            let game = viewModel.dummyData_games[index]
-                                            VStack{
-                                                GameCellView(isFinished: false, gameInfo: game.gameInfo, isPredicted: game.gameInfo.isPredicted)
-                                                    .padding(.vertical,2)
-                                            }
-                                            .padding(.vertical, 4)
-                                            
+                                        ForEach(viewModel.games.indices, id: \.self) { index in
+                                            let game = viewModel.games[index]
+                                            let isFinished = game.status.long == "Finished"
+                                            VStack {
+
+                                                GameCellViewClone(Game: game, isFinished: isFinished, isPredicted: true, dummyPredictedPercentage: 0.50)
+                                               
+                                                }
+                                            .padding(.vertical, 5)
                                         }
+//                                        ForEach(viewModel.dummyData_games. indices, id: \.self) {
+//                                            index in
+//                                            let game = viewModel.dummyData_games[index]
+//                                            VStack{
+//                                                GameCellView(isFinished: false, gameInfo: game.gameInfo, isPredicted: game.gameInfo.isPredicted)
+//                                                    .padding(.vertical,2)
+//                                            }
+//                                            .padding(.vertical, 4)
+//                                            
+//                                        }
                                     }
-//                                    if(viewModel.dummyData_falsePredictions.count != 0){
-//                                        HStack{
-//                                            ZStack{
-//                                                Rectangle()
-//                                                           .fill(Color.gray) // Color of the line
-//                                                           .frame(height: 1) // Height of the line
-//                                                       
-//                                                       Text("Predicted Games")
-//                                                           .font(.headline)
-//                                                           .foregroundColor(.gray)
-//                                                           .padding(.horizontal, 5)
-//                                                           .background(Color.themeColor(1))
-//                                            }
-//                                        }
-//                                        LazyVStack{
-//                                            ForEach(viewModel.dummyData_games.indices, id: \.self) {
-//                                                index in
-//                                                let game = viewModel.dummyData_games[index]
-//                                                if(game.gameInfo.isPredicted)
-//                                                {
-//                                                    VStack{
-//                                                        GameCellView(isFinished: false, gameInfo: game.gameInfo, isPredicted: game.gameInfo.isPredicted)
-//                                                            .padding(.vertical,2)
-//                                                    }
-//                                                    .padding(.vertical, 4)
-//                                                }
-//                                            }
-//                                        }
-//                                    }
+
                                 }
                                 
                             }
                          
                         }
                         .onAppear {
-                            viewModel.fetchGames()
+                            viewModel.fetchGames(date: "2024-04-20")
+                        }
+                        .onChange(of: currentDate)
+                        {
+                            viewModel.fetchGames(date: (formatDateToEDT(currentDate)))
                         }
                         Spacer()
                         
@@ -123,27 +115,46 @@ struct GameView: View {
         
     }
     
+    func formatDateToEDT(_ date: Date) -> String {
+        // Create a date formatter
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        // Set the time zone to Eastern Daylight Time (EDT)
+        let easternTimeZone = TimeZone(identifier: "America/New_York")!
+        dateFormatter.timeZone = easternTimeZone
+        
+        // Add one day to the date
+        let calendar = Calendar.current
+        let nextDay = calendar.date(byAdding: .day, value: 1, to: date)!
+        
+        // Format the date to string
+        let formattedDate = dateFormatter.string(from: nextDay)
+        
+        return formattedDate
+    }
+
+    
     struct CalendarView: View {
-        @State private var date = Date()
+        @Binding var date: Date
         @State private var dateValue = 0
-        @State private var formattedDate = ""
+        
 
         var body: some View {
             HStack {
                 Button {
-                    if(dateValue > 0)
-                    {
-                        dateValue -= 1
-                    }
+                    dateValue -= 1
+                    updateDate()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundStyle(dateValue > 0 ? .white : .gray)
+//                        .foregroundStyle(dateValue > 0 ? .white : .gray)
+                        .foregroundStyle(.white)
                 }
                 .padding(.horizontal)
-                .disabled(dateValue <= 0)
+//                .disabled(dateValue <= 0)
                 Spacer()
 
-                Text(formattedDate)
+                Text(formatDate(date))
                     .foregroundStyle(.white)
                     .font(.headline)
 
@@ -152,6 +163,8 @@ struct GameView: View {
                 Button {
                     
                     dateValue += 1
+                    updateDate()
+                    
                 } label: {
                     Image(systemName: "chevron.right")
                         .foregroundStyle(.white)
@@ -164,19 +177,16 @@ struct GameView: View {
                     .fill(Color.secondColor(1))
             )
             .padding()
-            .onAppear {
-                updateFormattedDate()
-            }
-            .onChange(of: dateValue) { _ in
-                updateFormattedDate()
-            }
         }
 
-        func updateFormattedDate() {
+        func updateDate() {
+               let newDate = Calendar.current.date(byAdding: .day, value: dateValue, to: Date()) ?? Date()
+               date = newDate
+           }
+        func formatDate(_ date: Date) -> String {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEEE MMM d"
-            let currentDate = Calendar.current.date(byAdding: .day, value: dateValue, to: date)
-            formattedDate = dateFormatter.string(from: currentDate ?? Date())
+            dateFormatter.dateFormat = "E MMM d"
+            return dateFormatter.string(from: date)
         }
     }
 

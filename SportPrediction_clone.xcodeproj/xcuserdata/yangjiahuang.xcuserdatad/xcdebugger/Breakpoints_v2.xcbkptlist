@@ -18,6 +18,38 @@
             endingLineNumber = "42"
             landmarkName = "unknown"
             landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "65CC89C8-CFB0-47E1-8CD9-2D8A96067B2B - 89fc015e841050d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportPrediction_clone.InformationView.init() -&gt; SportPrediction_clone.InformationView"
+                  moduleName = "SportPrediction_clone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yangjiahuang/Desktop/24%20Spring%20Semester/Research/Swift/handsonPractice/SportPrediction_clone/SportPrediction_clone/Core/News/Information/View/InformationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  uuid = "65CC89C8-CFB0-47E1-8CD9-2D8A96067B2B - 1a8c1cc10de10ce8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportPrediction_clone.InformationView.init(viewModel: SportPrediction_clone.NewsViewModel) -&gt; SportPrediction_clone.InformationView"
+                  moduleName = "SportPrediction_clone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yangjiahuang/Desktop/24%20Spring%20Semester/Research/Swift/handsonPractice/SportPrediction_clone/SportPrediction_clone/Core/News/Information/View/InformationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

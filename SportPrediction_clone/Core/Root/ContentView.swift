@@ -23,19 +23,14 @@ struct ContentView: View {
                            AuthenticationView(loggedIn: $loggedIn)
                        }
                        else{
-                           TabBarView()
+                           CustomBottomTabBarView()
                                .transition(.move(edge: .trailing)) // Slide from the right
                                .edgesIgnoringSafeArea(.bottom)
                        }
                    }
                }
         }
-        .onAppear{
-            Task{
-            }
-        }
     }
-    
     func fetchCurrentAuthSession() async {
         do {
             let session = try await Amplify.Auth.fetchAuthSession()
@@ -47,8 +42,6 @@ struct ContentView: View {
         }
     }
     
-    
-   
 }
 
 #Preview {

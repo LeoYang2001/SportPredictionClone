@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B408D7FD2BC6D8F40030C040 /* PredictionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */; };
+		B4130E0A2BD176FC0053485F /* GameCellFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4130E092BD176FC0053485F /* GameCellFinished.swift */; };
 		B42E32372BB8661A00FC1863 /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32362BB8661A00FC1863 /* GameTime.swift */; };
 		B42E32402BB884FA00FC1863 /* MyBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E323F2BB884FA00FC1863 /* MyBetView.swift */; };
 		B42E32452BB8853C00FC1863 /* MyBetFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32442BB8853C00FC1863 /* MyBetFilter.swift */; };
@@ -15,6 +16,10 @@
 		B42E32492BB88A8800FC1863 /* BetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32482BB88A8800FC1863 /* BetItem.swift */; };
 		B42E324D2BB8BBB800FC1863 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E324C2BB8BBB800FC1863 /* DropdownView.swift */; };
 		B44066F72BA32D7C0064EC8A /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44066F62BA32D7C0064EC8A /* NewsView.swift */; };
+		B4583C722BD0922C00A2864D /* CustomBottomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4583C712BD0922C00A2864D /* CustomBottomTabBarView.swift */; };
+		B4583C762BD0AEEA00A2864D /* Game_Clone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4583C752BD0AEEA00A2864D /* Game_Clone.swift */; };
+		B4583C7A2BD0AFB800A2864D /* NBAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4583C792BD0AFB800A2864D /* NBAViewModel.swift */; };
+		B4583C7E2BD0B50A00A2864D /* GameCellViewClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4583C7D2BD0B50A00A2864D /* GameCellViewClone.swift */; };
 		B45CFA192BC59ABF00A9F9C8 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45CFA182BC59ABF00A9F9C8 /* NewsModel.swift */; };
 		B45CFA1C2BC59ADC00A9F9C8 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45CFA1B2BC59ADC00A9F9C8 /* NewsViewModel.swift */; };
 		B45CFA1E2BC59B6900A9F9C8 /* APITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45CFA1D2BC59B6900A9F9C8 /* APITestView.swift */; };
@@ -82,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionCardView.swift; sourceTree = "<group>"; };
+		B4130E092BD176FC0053485F /* GameCellFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCellFinished.swift; sourceTree = "<group>"; };
 		B42E32362BB8661A00FC1863 /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
 		B42E323F2BB884FA00FC1863 /* MyBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetView.swift; sourceTree = "<group>"; };
 		B42E32442BB8853C00FC1863 /* MyBetFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetFilter.swift; sourceTree = "<group>"; };
@@ -89,6 +95,10 @@
 		B42E32482BB88A8800FC1863 /* BetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetItem.swift; sourceTree = "<group>"; };
 		B42E324C2BB8BBB800FC1863 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		B44066F62BA32D7C0064EC8A /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		B4583C712BD0922C00A2864D /* CustomBottomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomTabBarView.swift; sourceTree = "<group>"; };
+		B4583C752BD0AEEA00A2864D /* Game_Clone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_Clone.swift; sourceTree = "<group>"; };
+		B4583C792BD0AFB800A2864D /* NBAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAViewModel.swift; sourceTree = "<group>"; };
+		B4583C7D2BD0B50A00A2864D /* GameCellViewClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCellViewClone.swift; sourceTree = "<group>"; };
 		B45CFA182BC59ABF00A9F9C8 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		B45CFA1B2BC59ADC00A9F9C8 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		B45CFA1D2BC59B6900A9F9C8 /* APITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestView.swift; sourceTree = "<group>"; };
@@ -445,6 +455,7 @@
 			children = (
 				B48B41C92BA234F3007EAB1D /* ViewModifiers */,
 				B48B41C72BA234AC007EAB1D /* TabBarView.swift */,
+				B4583C712BD0922C00A2864D /* CustomBottomTabBarView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -481,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				B48B41D52BA2360E007EAB1D /* GameViewModel.swift */,
+				B4583C792BD0AFB800A2864D /* NBAViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -489,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				B48B41D72BA23626007EAB1D /* Game.swift */,
+				B4583C752BD0AEEA00A2864D /* Game_Clone.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,6 +546,8 @@
 			children = (
 				B48B41E22BA236A3007EAB1D /* GameCellView.swift */,
 				B42E32362BB8661A00FC1863 /* GameTime.swift */,
+				B4583C7D2BD0B50A00A2864D /* GameCellViewClone.swift */,
+				B4130E092BD176FC0053485F /* GameCellFinished.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -813,11 +828,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B42E32472BB885A400FC1863 /* MyBetFilterView.swift in Sources */,
+				B4583C722BD0922C00A2864D /* CustomBottomTabBarView.swift in Sources */,
 				B486DDC72BA498910048B139 /* PredictedPollView.swift in Sources */,
 				B48B41E72BA236E6007EAB1D /* GameCellViewModel.swift in Sources */,
 				B48B41D62BA2360E007EAB1D /* GameViewModel.swift in Sources */,
 				B486DDC52BA4981D0048B139 /* CarouselView.swift in Sources */,
 				B42E324D2BB8BBB800FC1863 /* DropdownView.swift in Sources */,
+				B4583C762BD0AEEA00A2864D /* Game_Clone.swift in Sources */,
 				B48B419C2BA23352007EAB1D /* ContentView.swift in Sources */,
 				B486DDD72BA5D9180048B139 /* AuthenticationView.swift in Sources */,
 				B44066F72BA32D7C0064EC8A /* NewsView.swift in Sources */,
@@ -834,9 +851,11 @@
 				B48B41FE2BA238EE007EAB1D /* LeaderBoardFilter.swift in Sources */,
 				B486DDDF2BA6245A0048B139 /* WelcomeView.swift in Sources */,
 				B48B41D82BA23626007EAB1D /* Game.swift in Sources */,
+				B4130E0A2BD176FC0053485F /* GameCellFinished.swift in Sources */,
 				B42E32492BB88A8800FC1863 /* BetItem.swift in Sources */,
 				B4B136182BAF4A820027A774 /* DetailNewsView.swift in Sources */,
 				B486DDE32BA62CB20048B139 /* SignUpView.swift in Sources */,
+				B4583C7A2BD0AFB800A2864D /* NBAViewModel.swift in Sources */,
 				B486DDE12BA6247D0048B139 /* SignInView.swift in Sources */,
 				B45CFA1C2BC59ADC00A9F9C8 /* NewsViewModel.swift in Sources */,
 				B48B41EE2BA237CA007EAB1D /* User.swift in Sources */,
@@ -849,6 +868,7 @@
 				B48B41E32BA236A3007EAB1D /* GameCellView.swift in Sources */,
 				B48B41EC2BA237B2007EAB1D /* UserListViewModel.swift in Sources */,
 				B48B41DC2BA23664007EAB1D /* LeagueFilterView.swift in Sources */,
+				B4583C7E2BD0B50A00A2864D /* GameCellViewClone.swift in Sources */,
 				B48B42002BA23903007EAB1D /* LeaderBoardFilterView.swift in Sources */,
 				B48B419A2BA23352007EAB1D /* SportPrediction_cloneApp.swift in Sources */,
 				B42E32452BB8853C00FC1863 /* MyBetFilter.swift in Sources */,
