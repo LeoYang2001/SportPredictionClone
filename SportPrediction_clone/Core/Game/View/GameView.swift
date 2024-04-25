@@ -99,7 +99,7 @@ struct GameView: View {
                          
                         }
                         .onAppear {
-                            viewModel.fetchGames(date: "2024-04-20")
+                            viewModel.fetchGames(date: "2024-04-13")
                         }
                         .onChange(of: currentDate)
                         {

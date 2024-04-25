@@ -29,14 +29,14 @@ struct GameCellFinished: View {
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.gray)
                     }
-                    VStack{ // Adjust vertical spacing
-                        TeamInfo(teamName: Game.teams.visitors.code,
-                                 teamImgUrl: Game.teams.visitors.logo,
-                                 standing: "25-12, 2nd Eastern")
-                        TeamInfo(teamName: Game.teams.home.code,
-                                 teamImgUrl: Game.teams.home.logo,
-                                 standing: "25-12, 2nd Eastern")
-                    }
+//                    VStack{ // Adjust vertical spacing
+//                        TeamInfo(teamName: Game.teams.visitors.code,
+//                                 teamImgUrl: Game.teams.visitors.logo,
+//                                 standing: "25-12, 2nd Eastern")
+//                        TeamInfo(teamName: Game.teams.home.code,
+//                                 teamImgUrl: Game.teams.home.logo,
+//                                 standing: "25-12, 2nd Eastern")
+//                    }
                 }
                 .onAppear(){
                     print(Game.date.start)

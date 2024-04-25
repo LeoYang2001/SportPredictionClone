@@ -3,7 +3,6 @@ import Foundation
 class NBAViewModel: ObservableObject {
     @Published var games: [GameClone] = []
     @Published var isLoading: Bool = false
-
     
     func fetchGames(date: String) {
         guard let url = URL(string: "https://api-nba-v1.p.rapidapi.com/games?date=\(date)") else {
@@ -23,18 +22,12 @@ class NBAViewModel: ObservableObject {
                 do {
                     let decodedResponse = try JSONDecoder().decode(GameResponseClone.self, from: data)
                     DispatchQueue.main.async {
-                        if let game = decodedResponse.response.first {
-                            self.games = [game]
-                        } else {
-                            // Handle no games for the date
-                            self.games = []
-                        }
+                        self.games = decodedResponse.response
                     }
                 } catch {
-                    print("Error decoding JSON")
+                    print("Error decoding JSON: \(error)")
                     DispatchQueue.main.async {
-                        // Handle decoding errors
-                        self.games = []
+                                       self.games = []
                     }
                 }
             } else if let error = error {

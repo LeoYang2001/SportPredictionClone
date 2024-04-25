@@ -34,12 +34,11 @@ struct GameCellViewClone: View {
                                 .foregroundStyle(.gray)
                     }
                     VStack{ // Adjust vertical spacing
-                        TeamInfo(teamName: Game.teams.visitors.code,
-                                 teamImgUrl: Game.teams.visitors.logo,
-                                 standing: "25-12, 2nd Eastern")
-                        TeamInfo(teamName: Game.teams.home.code,
-                                 teamImgUrl: Game.teams.home.logo,
-                                 standing: "25-12, 2nd Eastern")
+                        TeamInfo(teamName: Game.teams.visitors.name,
+                                ifHome: true
+                        )
+                        TeamInfo(teamName: Game.teams.home.name,
+                                 ifHome: false)
                     }
                 }
                 .onAppear(){
@@ -55,11 +54,11 @@ struct GameCellViewClone: View {
                 
                 
                 VStack{
-                    if !isPredicted{
-                        headerText("Prediction")
-                    }else{
-                        headerText("Your Prediction")
-                    }
+//                    if !isPredicted{
+//                        headerText("Prediction")
+//                    }else{
+//                        headerText("Your Prediction")
+//                    }
                     Spacer()
                     VStack(spacing: 20){
                         VStack{
@@ -67,6 +66,7 @@ struct GameCellViewClone: View {
 //                                handleVote("TeamA")
                             }, label: {
                                 VoteBtn(Game.teams.visitors.code)
+                               
                             })
                         }
                         
@@ -75,6 +75,7 @@ struct GameCellViewClone: View {
 //                                handleVote("TeamB")
                             }, label: {
                                 VoteBtn(Game.teams.home.code)
+//                                VoteBtn("Pick")
                             })
                         }
                     }

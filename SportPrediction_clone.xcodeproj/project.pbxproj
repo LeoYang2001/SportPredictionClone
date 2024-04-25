@@ -66,6 +66,8 @@
 		B4B136142BAF25C60027A774 /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = B4B136132BAF25C60027A774 /* AWSDataStorePlugin */; };
 		B4B136182BAF4A820027A774 /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B136172BAF4A820027A774 /* DetailNewsView.swift */; };
 		B4B1361B2BAF4C210027A774 /* LiveGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B1361A2BAF4C210027A774 /* LiveGameView.swift */; };
+		B4B633B72BD87020001ECC10 /* TeamNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B633B62BD87020001ECC10 /* TeamNames.swift */; };
+		B4CA32F92BDAE31C00969B2B /* PredictedCardCloneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA32F82BDAE31C00969B2B /* PredictedCardCloneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +146,8 @@
 		B4B1360F2BAF1CD80027A774 /* AuthFuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFuns.swift; sourceTree = "<group>"; };
 		B4B136172BAF4A820027A774 /* DetailNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsView.swift; sourceTree = "<group>"; };
 		B4B1361A2BAF4C210027A774 /* LiveGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGameView.swift; sourceTree = "<group>"; };
+		B4B633B62BD87020001ECC10 /* TeamNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNames.swift; sourceTree = "<group>"; };
+		B4CA32F82BDAE31C00969B2B /* PredictedCardCloneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictedCardCloneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */,
+				B4CA32F82BDAE31C00969B2B /* PredictedCardCloneView.swift */,
 			);
 			path = PredictedCard;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 		B48B41C42BA233B0007EAB1D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B4B633B52BD87007001ECC10 /* TeamNames */,
 				B42E323B2BB884C600FC1863 /* MyBet */,
 				B486DDD42BA5D8FC0048B139 /* Authentication */,
 				B48B41F72BA238B3007EAB1D /* LeaderBoard */,
@@ -687,6 +693,14 @@
 			path = liveGame;
 			sourceTree = "<group>";
 		};
+		B4B633B52BD87007001ECC10 /* TeamNames */ = {
+			isa = PBXGroup;
+			children = (
+				B4B633B62BD87020001ECC10 /* TeamNames.swift */,
+			);
+			path = TeamNames;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -829,6 +843,7 @@
 			files = (
 				B42E32472BB885A400FC1863 /* MyBetFilterView.swift in Sources */,
 				B4583C722BD0922C00A2864D /* CustomBottomTabBarView.swift in Sources */,
+				B4CA32F92BDAE31C00969B2B /* PredictedCardCloneView.swift in Sources */,
 				B486DDC72BA498910048B139 /* PredictedPollView.swift in Sources */,
 				B48B41E72BA236E6007EAB1D /* GameCellViewModel.swift in Sources */,
 				B48B41D62BA2360E007EAB1D /* GameViewModel.swift in Sources */,
@@ -848,6 +863,7 @@
 				B48B41E52BA236C7007EAB1D /* Prediction.swift in Sources */,
 				B408D7FD2BC6D8F40030C040 /* PredictionCardView.swift in Sources */,
 				B486DDCE2BA4E5370048B139 /* InformationView.swift in Sources */,
+				B4B633B72BD87020001ECC10 /* TeamNames.swift in Sources */,
 				B48B41FE2BA238EE007EAB1D /* LeaderBoardFilter.swift in Sources */,
 				B486DDDF2BA6245A0048B139 /* WelcomeView.swift in Sources */,
 				B48B41D82BA23626007EAB1D /* Game.swift in Sources */,

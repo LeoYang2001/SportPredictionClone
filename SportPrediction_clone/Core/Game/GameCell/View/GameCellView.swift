@@ -34,11 +34,9 @@ struct GameCellView: View {
                    
                     VStack{ // Adjust vertical spacing
                            TeamInfo(teamName: gameInfo.teamInfo.teamA.name,
-                                    teamImgUrl: gameInfo.teamInfo.teamA.img,
-                                    standing: gameInfo.teamInfo.teamA.standing)
+                                ifHome: true)
                            TeamInfo(teamName: gameInfo.teamInfo.teamB.name,
-                                    teamImgUrl: gameInfo.teamInfo.teamB.img,
-                                    standing: gameInfo.teamInfo.teamB.standing)
+                                ifHome: false)
                        }                }
 //                .frame(height:infinity)
               
@@ -132,31 +130,48 @@ struct GameCellView: View {
 struct TeamInfo: View{
     
     var teamName: String
-    var teamImgUrl: String
-    var standing: String
-    
+    var ifHome: Bool
     var body: some View{
         HStack{
-            HStack{
-                ImageDisplayWithoutCutting(teamImgUrl,imgSize:32)
-            }
-            .frame(width: 55, height: 35)
+//            HStack{
+//                ImageDisplayWithoutCutting(teamImgUrl,imgSize:32)
+//            }
+//            .frame(width: 55, height: 35)
             
 //            Spacer()
             VStack(alignment: .leading){
                 Text(teamName)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .font(.subheadline)
-                if let (teamRecord, teamStanding) = splitStanding(standing) {
-                                    HStack {
-                                        Text(teamRecord)
-                                            .font(.footnote)
-                                        Text(teamStanding)
-                                            .font(.system(size: 12))
-                                            .foregroundStyle(.gray)
-                                    }
+                if(ifHome)
+                {
+                    HStack{
+                        Text("Home")
+                            .font(.footnote)
+                            .padding(.vertical,2)
+                            .padding(.horizontal,2)
+                            .background(
+                             RoundedRectangle(cornerRadius: 4)
+                                .fill(Color.red)
+                            )
+                            .foregroundColor(.white)
+                           
                     }
-
+                }
+                else{
+                    HStack{
+                        Text("Guest")
+                            .font(.footnote)
+                            .padding(.vertical,2)
+                            .padding(.horizontal,2)
+                            .background(
+                             RoundedRectangle(cornerRadius: 4)
+                                .fill(Color.blue)
+                            )
+                            .foregroundColor(.white)
+                           
+                    }
+                }
             }
             Spacer()
         }
@@ -211,7 +226,7 @@ func VoteBtn(_ text: String) -> some View{
     Text(text)
         .padding(.vertical,8)
         .foregroundStyle(.white)
-        .frame(width: 80, height: .infinity)
+        .frame(width: 60, height: .infinity - 20)
         .background{
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.secondColor(0.4))

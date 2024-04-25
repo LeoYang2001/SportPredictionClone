@@ -30,11 +30,16 @@ struct PredictionCardView: View {
                     Spacer()
                     VStack{
                         
-                        Image("NBAlogo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 35, height: 35)
-                            .padding()
+//                        Image("NBAlogo")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                            .frame(width: 35, height: 35)
+//                            .padding()
+                        Text("NBA")
+                            .font(.title)
+                            .foregroundStyle(.white)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .padding(.top)
                        Spacer()
                         if(ifComplete)
                         {

@@ -34,7 +34,7 @@ struct MyBetView: View {
                                         let ifWin = index == 2 ? false : true
                                         
                                         ZStack{
-                                            PredictionCardView(ifComplete:ifComplete, ifWin: ifWin)
+                                            PredictedCardCloneView(ifComplete:ifComplete, ifWin: ifWin)
                                         }
                                         .padding()
                                     }
