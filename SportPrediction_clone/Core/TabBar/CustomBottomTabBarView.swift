@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomBottomTabBarView: View {
     
-    @State var currentTab: Tab = .Notifications
+    @State var currentTab: Tab = .Home
     
     @Namespace var animation
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B408D7FD2BC6D8F40030C040 /* PredictionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */; };
 		B4130E0A2BD176FC0053485F /* GameCellFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4130E092BD176FC0053485F /* GameCellFinished.swift */; };
+		B4281D822BE060F90021674E /* CustomDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4281D812BE060F90021674E /* CustomDialogView.swift */; };
 		B42E32372BB8661A00FC1863 /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32362BB8661A00FC1863 /* GameTime.swift */; };
 		B42E32402BB884FA00FC1863 /* MyBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E323F2BB884FA00FC1863 /* MyBetView.swift */; };
 		B42E32452BB8853C00FC1863 /* MyBetFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E32442BB8853C00FC1863 /* MyBetFilter.swift */; };
@@ -90,6 +91,7 @@
 /* Begin PBXFileReference section */
 		B408D7FC2BC6D8F40030C040 /* PredictionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionCardView.swift; sourceTree = "<group>"; };
 		B4130E092BD176FC0053485F /* GameCellFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCellFinished.swift; sourceTree = "<group>"; };
+		B4281D812BE060F90021674E /* CustomDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialogView.swift; sourceTree = "<group>"; };
 		B42E32362BB8661A00FC1863 /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
 		B42E323F2BB884FA00FC1863 /* MyBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetView.swift; sourceTree = "<group>"; };
 		B42E32442BB8853C00FC1863 /* MyBetFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetFilter.swift; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4281D802BE060870021674E /* CustomDialogView */ = {
+			isa = PBXGroup;
+			children = (
+				B4281D812BE060F90021674E /* CustomDialogView.swift */,
+			);
+			path = CustomDialogView;
+			sourceTree = "<group>";
+		};
 		B42E323B2BB884C600FC1863 /* MyBet */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +487,7 @@
 		B48B41CC2BA235AC007EAB1D /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				B4281D802BE060870021674E /* CustomDialogView */,
 				B48B41D12BA235CA007EAB1D /* GameCell */,
 				B48B41D02BA235C5007EAB1D /* LeagueFilter */,
 				B48B41CF2BA235BF007EAB1D /* Model */,
@@ -868,6 +879,7 @@
 				B486DDDF2BA6245A0048B139 /* WelcomeView.swift in Sources */,
 				B48B41D82BA23626007EAB1D /* Game.swift in Sources */,
 				B4130E0A2BD176FC0053485F /* GameCellFinished.swift in Sources */,
+				B4281D822BE060F90021674E /* CustomDialogView.swift in Sources */,
 				B42E32492BB88A8800FC1863 /* BetItem.swift in Sources */,
 				B4B136182BAF4A820027A774 /* DetailNewsView.swift in Sources */,
 				B486DDE32BA62CB20048B139 /* SignUpView.swift in Sources */,

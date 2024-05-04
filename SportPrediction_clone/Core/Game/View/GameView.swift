@@ -11,6 +11,8 @@ import Foundation
 struct GameView: View {
     @ObservedObject private var viewModel = NBAViewModel()
     
+    @State var isModalActive: Bool = true
+    
     @State private var selectedFilter: LeagueFilter = .nba
     @Namespace var animation
     private var filterBarWidth: CGFloat {
@@ -81,16 +83,6 @@ struct GameView: View {
                                                 }
                                             .padding(.vertical, 5)
                                         }
-//                                        ForEach(viewModel.dummyData_games. indices, id: \.self) {
-//                                            index in
-//                                            let game = viewModel.dummyData_games[index]
-//                                            VStack{
-//                                                GameCellView(isFinished: false, gameInfo: game.gameInfo, isPredicted: game.gameInfo.isPredicted)
-//                                                    .padding(.vertical,2)
-//                                            }
-//                                            .padding(.vertical, 4)
-//                                            
-//                                        }
                                     }
 
                                 }
@@ -110,8 +102,16 @@ struct GameView: View {
                     }
                     .foregroundStyle(.white)
                   
+                   
                 }
+            if isModalActive {
+                CustomDialogView( isActive: .constant(true),
+                    title: "Picked TOR", message: "You selected home team", buttonTitle: "Give Access") {
+                }
+            }
         }
+        
+        
         
     }
     
